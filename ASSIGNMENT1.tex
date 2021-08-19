@@ -152,35 +152,84 @@ Let the point equidistant from $\Vec{A}$ \& $\Vec{B}$ \& $\Vec{C}$ be
     \Vec{P}=\myvec{x\\y}
 \end{align}
 From the given information 
-\begin{align}
+\begin{align}\label{eq:1}
     \norm{\Vec{P}-\vec{A}}^2 &= \norm{\vec{P}-\vec{B}}^2 = \norm{\vec{P}-\vec{C}}^2\\
 \therefore
     \norm{\Vec{P}-\vec{A}}^2 &= \norm{\vec{P}-\vec{B}}^2
 \end{align}
 
+\begin{equation} \label{eq:2}
+\boxed{(\vec{P}-\vec{A})^{\top}(\vec{P}-\vec{A})=(\vec{P}-\vec{B})^{\top}(\vec{P}-\vec{B})}
+\end{equation}
 \begin{align}
-    \norm{\vec{P}-\myvec{5\\3}}^2 =\norm{\vec{P} - \myvec{5\\-5}}^2\\
-    \Longrightarrow \norm{\vec{P}}^2 + \norm{\myvec{5\\3}}^2 -2\vec{A}^T\vec{P}\\ = \norm{\vec{P}}^2 + \norm{\myvec{5\\-5}}^2 -2\vec{B}^T\vec{P}
+ (\vec{P}-\vec{A})^{\top}(\vec{P}-\vec{A})=\vec{P}^{\top} \vec{P}-\vec{P}^{\top} \vec{A}-\vec{A}^{\top} \vec{P}+\vec{A}^{\top} \vec{A}
+\\
+(\vec{P}-\vec{B})^{\top}(\vec{P}-\vec{B})=\vec{P}^{\top} \vec{P}-\vec{P}^{\top} \vec{B}-\vec{B}^{\top} \vec{P}+\vec{B}^{\top} \vec{B}   
 \end{align}
-Which can be simplified to obtain 
+Consider the expressions 
 \begin{align}
-    \myvec{0&16}\vec{P} = -16
-    \Longrightarrow y = -1
+\vec{P}^{\top} \vec{P}=\norm{\vec{P}}^2\\
+\vec{P}^{\top} \vec{A}=\vec{A}^{\top} \vec{P}
+\end{align}
+Final expression of \eqref{eq:2} can be written as
+\begin{align}
+\boxed{\norm{\vec{P}}^2-2 \vec{A}^{\top} \vec{P}+\vec{A}^{\top} \vec{A}=\norm{\vec{P}}^2-2 \vec{B}^{\top} \vec{P}+\vec{B}^{\top} \vec{B}}\\
+\implies-2 \vec{A}^{\top} \vec{P}+2 \vec{B}^{\top} \vec{P}= \vec{B}^{\top} \vec{B}-\vec{A}^{\top} \vec{A}\\
+\implies 2 \vec{P}(\vec{A}^{\top}-\vec{B}^{\top})= \vec{A}^{\top} \vec{A}-\vec{B}^{\top} \vec{B}
+\end{align}
+\begin{equation} \label{eq:3}
+2 \vec{P}(\vec{A}^{\top}-\vec{B}^{\top})=\norm{\vec{A}}^2-\norm{\vec{B}}^2
+\end{equation}
+\vec{P} lies on the y-axis
+\begin{equation}
+    \boxed{\vec{P}&= y\myvec{0\\1}&= y \vec{e_2}}
+\end{equation}
+Now substitute this in \eqref{eq:3}
+\begin{align}
+2\vec{ye_2}(\vec{A}^{\top}-\vec{B}^{\top})&=\norm{\vec{A}}^2-\norm{\vec{B}}^2\\
+\boxed{\vec{y} = \frac{\norm{\vec{A}}^2 - \norm{\vec{B}}^2}{2\vec{e_2}(\vec{A}^{\top} - \vec{B}^{\top})}}\\
+\vec{2e_2}(\vec{A}^{\top}-\vec{B}^{\top})&=2\myvec{0\\1}\myvec{0\ 8}=16\\
+\implies
+\vec{y}&=\myvec{\dfrac{-16}{16}}\\
+ \boxed{\therefore \vec{y} =-1}
+\end{align}
+From \eqref{eq:1} we can write
+\begin{equation}
+\norm{\Vec{P}-\vec{B}}^2 &= \norm{\vec{P}-\vec{C}}^2
+\end{equation}
+\begin{equation} \label{eq:4}
+2 \vec{P}(\vec{B}^{\top}-\vec{C}^{\top})=\norm{\vec{B}}^2-\norm{\vec{C}}^2
+\end{equation}
+\vec{P} lies on the x-axis
+\begin{equation}
+    \boxed{\vec{P}&= x\myvec{1\\0}&= x \vec{e_2}}
+\end{equation}
+Now substitute this in \eqref{eq:4}
+\begin{align}
+2\vec{xe_2}(\vec{B}^{\top}-\vec{C}^{\top})&=\norm{\vec{B}}^2-\norm{\vec{C}}^2\\
+\boxed{\vec{x} = \frac{\norm{\vec{B}}^2 - \norm{\vec{C}}^2}{2\vec{e_2}(\vec{B}^{\top} - \vec{C}^{\top})}}\\
+\vec{2e_2}(\vec{B}^{\top}-\vec{C}^{\top})&=2\myvec{1\\0}\myvec{4\ 0}=8\\
+\implies
+\vec{x}&=\myvec{\dfrac{24}{8}}\\
+ \boxed{\therefore \vec{x} =3}
 \end{align}
 
-\begin{align}
-    \norm{\vec{P}-\myvec{5\\-5}}^2 =\norm{\vec{P} - \myvec{1\\-5}}^2\\
-    \Longrightarrow \norm{\vec{P}}^2 + \norm{\myvec{5\\-5}}^2 -2\vec{B}^T\vec{P}\\ = \norm{\vec{P}}^2 + \norm{\myvec{1\\-5}}^2 -2\vec{C}^T\vec{P}
-\end{align}
-Which can be simplified to obtain
-\begin{align}
-    \myvec{8&0}\vec{P} = 24
-    \Longrightarrow x = 3
-\end{align}
-The required point 
+%\begin{align}
+%\vec{y} = \frac{\norm{\vec{A}}^2 - \norm{\vec{B}}^2}{2\vec{e_2}(\vec{A}^{\top} - \vec{B}^{\top})}
+%\end{align}
+%\begin{align}
+%\vec{y} = \frac{\norm{a}}{2}
+%\end{align}
+
+The coordinate  point  equidistance from three points is
 \begin{align}
     \vec{P}=\myvec{3\\-1}.
 \end{align}
-
+\numberwithin{figure}{section}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\columnwidth]{download.png}
+    \caption{Fig. 2.25}
+    \label{Graphical solution}
+\end{figure}
 \end{document}
-
